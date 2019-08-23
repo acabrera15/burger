@@ -15,5 +15,10 @@ var burgerModel = {
         console.log(a);
       }
     );
+  },
+  updateBurger: function(burgerObj, condition) {
+      orm.updateOne('burgers', burgerObj, condition, function(a) {
+          console.log(a);
+      })
   }
 };
