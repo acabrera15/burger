@@ -1,19 +1,15 @@
 var orm = require("../config/orm");
 
 var burgerModel = {
-  selectAllBugers: function() {
-    orm.selectAll("burgers", function(a) {
-      console.log(a);
-    });
+  selectAllBugers: function(toDo) {
+    orm.selectAll("burgers", toDo);
   },
-  insertBurger: function(name, devoured) {
+  insertBurger: function(burger, toDo) {
     orm.insertOne(
       "burgers",
-      ["burger_name", "devoured"],
-      [name, devoured],
-      function(a) {
-        console.log(a);
-      }
+      ["burger_name"],
+      [burger],
+      toDo
     );
   },
   updateBurger: function(burgerObj, condition) {
