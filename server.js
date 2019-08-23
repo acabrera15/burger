@@ -1,6 +1,8 @@
 // Dependencies
 // =============================================================
 var express = require("express");
+var path = require("path");
+
 
 // Sets up the Express App
 // =============================================================
@@ -11,9 +13,12 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//makes sure that the items in the public folder are used.
+//added so CSS works
+
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-
+app.use(express.static(path.join(__dirname, "/public")));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -25,6 +30,8 @@ var routes = require("./controllers/burger_controller");
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
+
+
 
 //makes sure the routes are used for the application
 app.use(routes);
