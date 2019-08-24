@@ -21,10 +21,14 @@
 
 <body>
     <div class="container">
+        <!--headings-->
         <img src="/images/burger.PNG" alt="Burger" class="rounded mx-auto d-block" id='burgerImage'>
         <h1 class='text-center'>Eat-Da-Burger</h1>
+
+        <!--body-->
         {{{body}}}
 
+        <!--Input burger and submit button-->
         <form>
             <div class="form-group">
                 <label for="burgerInput" class='text-center d-block'>Input Burger</label>
@@ -36,6 +40,7 @@
     </div>
 </body>
 <script>
+    //adds a burger when the submit button is clicked
     $('#submit').on('click', function (event) {
         event.preventDefault();
         var burger = { burger: $('#burgerInput').val().trim() };
@@ -43,9 +48,10 @@
         $.post('/api/addBurger', burger, function () {
             console.log('POSTED')
         }).then(() => location.reload());
-        
+
     })
 
+    //sets burger to devoured when devoured button clicked
     $(document).on('click', '.devourButton', function (event) {
         event.preventDefault()
         console.log('THE ID IS ' + $(this).attr('burgerId'))

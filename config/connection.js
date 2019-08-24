@@ -1,4 +1,7 @@
+//import mysql
 var mysql      = require('mysql');
+
+//create a connection to mysql Db
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -6,10 +9,11 @@ var connection = mysql.createConnection({
   database : 'burgers_db'
 });
  
+//starts connection to DB
 connection.connect(function(err) {
     if (err) throw err;
 
- 
 });
 
+//export connection
 module.exports = connection;
