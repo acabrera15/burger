@@ -1,2 +1,2 @@
-INSERT INTO burgers (burger_name, devoured) 
-VALUES ('baconator', false), ('plain burger', true), ('black and blue', false);
+INSERT INTO burgers (burger_name) 
+VALUES ('baconator'), ('plain burger'), ('black and blue');
