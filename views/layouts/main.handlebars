@@ -44,6 +44,15 @@
             console.log('POSTED')
         });
     })
+
+    $(document).on('click', '.devourButton', function(event) {
+        event.preventDefault()
+        console.log('THE ID IS ' + $(this).attr('burgerId'))
+        var id = {id: $(this).attr('burgerId')};
+        $.post('/api/Devour', id, function() {
+            console.log('POSTED');
+        })
+    })
 </script>
 
 </html>

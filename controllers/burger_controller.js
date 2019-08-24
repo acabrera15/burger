@@ -14,6 +14,12 @@ router.post("/api/addBurger", function(req, res) {
     burger.insertBurger(req.body.burger, function() {
         res.redirect('/');
     });
+});
+
+router.post('/api/Devour', function(req, res) {
+  burger.updateBurger(req.body.id, function() {
+    res.redirect('/');
+  })
 })
 
 module.exports = router;
